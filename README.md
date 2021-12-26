@@ -1,0 +1,2 @@
+- This is project for learning Rust lang.
+- Learning source: https://www.youtube.com/watch?v=zF34dRivLOw&ab_channel=TraversyMedia
