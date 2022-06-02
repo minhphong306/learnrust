@@ -63,9 +63,51 @@ fn variables_scalar() {
     println!("isTrue: {}", is_true);
 }
 
+fn array() {
+    let arr: [u8; 3] = [1, 2, 3];
+    let other_arr: [u8; 5] = [100; 5];
+
+    println!("index: {}, length: {}", arr[0], other_arr.len());
+
+    // Print structure of array and other objects
+    println!("{:?}", arr);
+    println!("{:?}", other_arr);
+}
+
+fn tuple() {
+    let tuple: (u8, bool, f32) = (5, true, 2.1);
+    let tuple2 = (3, 5);
+
+    let (a, b, c) = tuple;
+
+    println!("First: {}, second: {}, third: {}", a, b, c);
+}
+
+fn function() {
+    print!("{}", is_even(2))
+}
+
+pub fn is_even(num: u8) -> bool {
+    let digit: u8 = num % 2;
+    digit == 0 // return bool
+}
+
+fn mutability() {
+    let mut num = 5;
+    num = 3;
+    println!("{}", num);
+}
+
+fn array_and_slice() {
+    
+}
 fn main() {
     // greet_world();
     // penguin();
 
-    variables_scalar();
+    // variables_scalar();
+    // array();
+    // tuple();
+    // function();
+    mutability();
 }
