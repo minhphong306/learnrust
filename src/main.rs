@@ -1,3 +1,4 @@
+// From book
 fn greet_world() {
     println!("Hello, world!");
 
@@ -40,7 +41,31 @@ fn penguin() {
     }
 }
 
+// From rush crash course for solana (https://www.youtube.com/watch?v=-AAtfPHEMbA&list=PL53JxaGwWUqCr3xm4qvqbgpJ4Xbs4lCs7&index=2)
+
+// variables - scalar
+fn variables_scalar() {
+    let unsigned: u8 = 10;
+
+    let signed: i8 = -10;
+
+    let float: f32 = 1.2;
+
+    println!("unsign: {}, sign: {}, float: {}", unsigned, signed, float);
+
+    let letter = "c1232";
+    let emoji = "\u{1F600}";
+
+    println!("letter: {}, emoji: {}", letter, emoji);
+
+    let is_true: bool = true;
+
+    println!("isTrue: {}", is_true);
+}
+
 fn main() {
     // greet_world();
-    penguin();
+    // penguin();
+
+    variables_scalar();
 }
