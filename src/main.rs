@@ -98,9 +98,125 @@ fn mutability() {
     println!("{}", num);
 }
 
-fn array_and_slice() {
-    
+fn string() {
+    let str: &str = "hello world";
+    let mut string: String = String::from("Hello World");
+
+    let slice = &string[.. 6];
+    slice.len();
+
+    string.push('1');
+    string.push_str("! Bob");
+    string = string.replace("Hello", "Bye");
+    println!("{}", string);
 }
+
+fn array_and_slice() {
+    let arr = [0, 1, 2, 3];
+    let slice = &arr[1 .. 3];
+
+    borrowing_slice(arr, slice);
+}
+
+fn borrowing_slice(arr: [u8; 4], slice: &[u8]) {
+    println!("{:?}", arr);
+    println!("{:?}", slice);
+    println!("length: {}", slice.len());
+    println!("{} {}", slice[0], slice[1]);
+}
+
+fn if_condition() {
+    let n = 3;
+    if n > 0 {
+        println!("greater than 0");
+    } else if n < 0 {
+        println!("less than 0");
+    } else {
+        println!("equal zero");
+    }
+}
+
+fn for_loop() {
+    for i in 0..6 {
+        println!("{}", i);
+    }
+}
+
+fn while_loop() {
+    let mut i = 0;
+    while i < 4 {
+        println!("{}", i);
+        i += 1;
+        
+        if i == 3 {
+            println!("exit");
+            break;
+        }
+    }
+}
+
+fn match_statement() {
+    let i = 5;
+    match i {
+        0 => println!("0"),
+        1 | 2 => println!("1, 2"),
+        3..=4 => println!("3, 4"),
+        _ => println!("default")
+    }
+}
+
+struct Bird {
+    name: String,
+    attack: u64
+}
+
+impl Bird {
+    fn print_name(&self) {
+        println!("{}", self.name);
+    }
+}
+
+fn structs() {
+    let name = String::from("Bird");
+    let bird = Bird { name: name, attack: 100};
+
+    bird.print_name();
+}
+
+trait Animal {
+    fn can_fly(&self) -> bool;
+    fn is_animal(&self) -> bool {
+        true
+    }
+}
+
+impl Animal for Bird {
+    fn can_fly(&self) -> bool {
+        true
+    }
+
+    fn is_animal(&self) -> bool {
+        false
+    }
+}
+
+fn trail() {
+
+}
+
+#[derive(Debug)]
+enum MyEnum {
+    A,
+    B(i32),
+    C {x: i32, y: i32}
+}
+
+// fn enum() {
+//     let a: MyEnum = MyEnum::A;
+//     let b: MyEnum = MyEnum::B(5);
+//     let c: MyEnum = MyEnum::C{x: 10, y: 20};
+// }
+
 fn main() {
     // greet_world();
     // penguin();
@@ -109,5 +225,12 @@ fn main() {
     // array();
     // tuple();
     // function();
-    mutability();
+    // mutability();
+    // array_and_slice();
+    // string();
+    // if_condition();
+    // for_loop();
+    // while_loop();
+    // match_statement();
+    structs();
 }
