@@ -217,11 +217,48 @@ enum MyEnum {
 //     let c: MyEnum = MyEnum::C{x: 10, y: 20};
 // }
 
+
+// fn longest(x: &str, y: &str) -> &str {
+//     if x.len() > y.len() {
+//         x
+//     } else {
+//         y
+//     }
+// }
+
+// fn test_lifetime() {
+//     println!("Hello hihi");
+//     let string1 = String::from("abcd");
+//     let string2 = "xyz";
+//     let result = longest(string1.as_str(), string2);
+//     println!("The longest string is {}", result);
+// }
+
+fn longest_v1<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+
+fn test_lifetime_v1() {
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest_v1(&string1, string2);
+    println!("The longest string is {}", result);
+}
+
+fn add_with_lifetimes<'a, 'b>(i: &'a i32, j: &'b i32) -> i32 {
+    *i + *j
+}
+
 fn main() {
     // greet_world();
     // penguin();
 
-    // variables_scalar();
+    // variables_scalar();~
     // array();
     // tuple();
     // function();
@@ -232,5 +269,12 @@ fn main() {
     // for_loop();
     // while_loop();
     // match_statement();
-    structs();
+    // structs();
+    // test_lifetime();
+    // test_lifetime_v1();
+    let a = 10;
+    let b = 20;
+    let res = add_with_lifetimes(&a, &b);
+
+    println!("Result is: {}", res);
 }
